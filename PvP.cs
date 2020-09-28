@@ -307,7 +307,7 @@ namespace HelloWorld
         {
             Console.WriteLine("What is your name?");
             string name = Console.ReadLine();
-            Player player = new Player(name, 100, 10, 3);
+            Player player = new Player(name, 100, 10, 0, 3);
             //SelectItems(player);
             SelectWeapon(player);
             return player;

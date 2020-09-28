@@ -19,7 +19,7 @@ namespace HelloWorld
         }
 
 
-        public void Tittle()
+        public void Title()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Topia");
@@ -201,21 +201,33 @@ namespace HelloWorld
         {
             Console.WriteLine("What is your name?");
             string name = Console.ReadLine();
-            Player player = new Player(name, 100, 10, 3);
+            Player player = new Player(name, 100, 10, 0, 3);
             //SelectRoles(player);
             return player;
         }
 
+        public Player ChooseClass()
+        {
+            _player1.ChangingStats();
+            return _player1;
+        }
+
+        public Player ChooseRace()
+        {
+            _player1.ChangingRace();
+            return _player1;
+        }
+
         public Player CreateEnemy()
         {
-            Player player = new Player("Demon King", 300, 30, 3);
+            Player player = new Player("Demon King", 300, 30, 100, 3);
             return player;
         }
 
 
         public void Run()
         {
-            Tittle();
+            Title();
             Start();
             while (_gameOver == false)
             {
@@ -289,8 +301,12 @@ namespace HelloWorld
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("'What is your name Hero?' the woman asks.");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("You gave her your name: " + _player1._name);
-
+                Console.WriteLine("You gave her your name: " + _player1.GetName());
+                string race = Console.ReadLine();
+                Console.WriteLine("  ");
+                Console.WriteLine("-Level Gained-");
+                _player1.LevelUp();
+                Console.WriteLine("     ");
             }
 
             

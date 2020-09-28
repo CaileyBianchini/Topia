@@ -16,8 +16,8 @@ namespace HelloWorld
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
         }
-        public Player(string nameVal, float healthVal, float damageVal, int inventorySize)
-            : base(damageVal, healthVal, nameVal)
+        public Player(string nameVal, float healthVal, float damageVal, int levelVal, int inventorySize)
+            : base(damageVal, healthVal, nameVal, levelVal)
         {
             _inventory = new Items[inventorySize];
             _hands.statName = "Your fugly hands";
