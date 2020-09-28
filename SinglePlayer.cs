@@ -227,22 +227,6 @@ namespace HelloWorld
 
         public void End()
         {
-
-        }
-
-
-        public void Adventure()
-        {
-            while (_player1.GetIsAlive())
-            {
-
-
-
-
-
-
-            }
-
             Console.Clear();
 
             if (_player1.GetNotAlive())
@@ -261,7 +245,7 @@ namespace HelloWorld
                 Console.WriteLine("You reached the end of what we have. This is an early version of the game.");
                 char input;
                 GetInput(out input, "Yes", "No", "Do you wish to save?");
-                if(input == '1')
+                if (input == '1')
                 {
                     Console.WriteLine("Saving . . .");
                     Console.ReadKey();
@@ -277,6 +261,22 @@ namespace HelloWorld
             Console.WriteLine("Press [Enter] to End Game.");
             Console.ReadLine();
             Console.Clear();
+        }
+
+
+        public void Adventure()
+        {
+            while (_player1.GetIsAlive())
+            {
+
+
+
+
+
+
+            }
+
+            
         }
 
 
