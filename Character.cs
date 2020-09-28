@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -33,6 +34,36 @@ namespace HelloWorld
             if (_health < 0)
                 _health = 0;
             return damageVal;
+        }
+
+        public virtual void Save(StreamWriter writer, string path)
+        {
+            //save the characters stats
+            writer.WriteLine(_name);
+            writer.WriteLine(_health);
+            writer.WriteLine(_damage);
+        }
+
+        public virtual bool Load(StreamReader reader)
+        {
+            //creates variable to the store loaded data.
+            string name = reader.ReadLine();
+            float damage = 0;
+            float health = 0;
+            //checks to see if loading was successful
+            if(float.TryParse(reader.ReadLine(), out damage) == false)
+            {
+                return false;
+            }
+            if (float.TryParse(reader.ReadLine(), out health) == false)
+            {
+                return false;
+            }
+            //if successful, set update the member variables and return true.
+            _name = name;
+            _damage = damage;
+            _health = health;
+            return true;
         }
 
         public string GetName()

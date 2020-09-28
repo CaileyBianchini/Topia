@@ -205,8 +205,57 @@ namespace HelloWorld
             }
         }
 
+        public void StartBattle()
+        {
+            Console.WriteLine("FIGHT TILL ONE DIES!!!!!!");
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine((i + 1) + ". ");
+            }
+            Console.WriteLine("Go!");
 
+            while (_player1.GetIsAlive() && _player2.GetIsAlive())
+            {
+                //prints player one and two's stat
+                Console.WriteLine("Player one");
+                _player1.PrintStats();
+                Console.WriteLine("Player two");
+                _player2.PrintStats();
 
+                char input;
+
+                //Player One
+                GetInput(out input, "Attack", "Peace", "Open Invatory", "\nPlayer one! What do you wish to do?");
+
+                if (input == '1')
+                {
+                    float totalDamage = _player2.Attack(_player1);
+                    Console.WriteLine(_player1.GetName() + " did " + totalDamage + " to " + _player2.GetName());
+                }
+                if (input == '2')
+                {
+                    Console.WriteLine("\nPlayer one went with a peaceful option! Hopefully Player two feels the same!");
+
+                }
+                Continue();
+
+                //Player Two
+                GetInput(out input, "Attack", "Peace", "Open Inventory", "Player two! What do you wish to do?");
+
+                if (input == '1')
+                {
+                    float totalDamage = _player1.Attack(_player2);
+                    Console.WriteLine(_player2.GetName() + " did " + totalDamage + " to " + _player1.GetName());
+                }
+                if (input == '2')
+                {
+                    Console.WriteLine("\nPlayer two went with a peaceful option! Hopefully Player one feels the same!");
+
+                }
+
+                Continue();
+            }
+        }
 
         public Player CreateCharacter()
         {
@@ -221,21 +270,31 @@ namespace HelloWorld
         public void Run()
         {
             Console.WriteLine("Hello Players!");
+            Start();
+            while (_gameOver == false)
+            {
+                Update();
+            }
+            End();
         }
 
         public void Start()
         {
-
+            InitializeItems();
         }
 
         public void Update()
         {
-
+            _player1 = CreateCharacter();
+            _player2 = CreateCharacter();
+            StartBattle();
         }
 
         public void End()
         {
-
+            Console.WriteLine("Battle Over!");
+            Console.WriteLine("Press [Enter] to close game.");
+            Console.ReadKey();
         }
     }
 }
