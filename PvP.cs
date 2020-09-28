@@ -276,7 +276,20 @@ namespace HelloWorld
             }
         }
 
+        public void OpenMenu()
+        {
+            char input;
+            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
+            if (input == '2')
+            {
+                Load();
+                return;
+            }
 
+            _player1 = CreateCharacter();
+            _player2 = CreateCharacter();
+            Save();
+        }
 
         public Player CreateCharacter()
         {
@@ -306,8 +319,8 @@ namespace HelloWorld
 
         public void Update()
         {
-            _player1 = CreateCharacter();
-            _player2 = CreateCharacter();
+            OpenMenu();
+            
             StartBattle();
         }
 
