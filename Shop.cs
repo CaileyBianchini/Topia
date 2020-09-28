@@ -6,5 +6,6 @@ namespace HelloWorld
 {
     class Shop
     {
+        //Not in use
     }
 }

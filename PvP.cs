@@ -32,10 +32,6 @@ namespace HelloWorld
         private Items _mace;
         private Items _hammer;
 
-        //shop
-        private Shop shop;
-        private Items shopInventory;
-        private Items _money;
 
         public void InitializeItems()
         {
