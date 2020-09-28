@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace HelloWorld
@@ -164,6 +165,24 @@ namespace HelloWorld
         }
 
 
+
+        public void Save()
+        {
+            StreamWriter writer = new StreamWriter("SaveData.txt");
+            _player1.Save(writer);
+            _player2.Save(writer);
+            writer.Close();
+        }
+
+        public virtual void Load()
+        {
+            StreamReader reader = new StreamReader("SaveData.txt");
+            //save the characters stats
+            _player2.Load(reader);
+            _player2.Load(reader);
+        }
+
+
         public void SelectWeapon(Player player)
         {
             Console.Clear();
@@ -256,6 +275,8 @@ namespace HelloWorld
                 Continue();
             }
         }
+
+
 
         public Player CreateCharacter()
         {

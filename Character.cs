@@ -36,13 +36,14 @@ namespace HelloWorld
             return damageVal;
         }
 
-        public virtual void Save(StreamWriter writer, string path)
+        public virtual void Save(StreamWriter writer)
         {
             //save the characters stats
             writer.WriteLine(_name);
             writer.WriteLine(_health);
             writer.WriteLine(_damage);
         }
+
 
         public virtual bool Load(StreamReader reader)
         {
