@@ -186,16 +186,15 @@ namespace HelloWorld
         public void SelectWeapon(Player player)
         {
             Console.Clear();
-            Console.WriteLine(_longSword.statName);
-            Console.WriteLine(_dagger.statName);
-            Console.WriteLine(_ax.statName);
-            Console.WriteLine(_staff.statName);
-            Console.WriteLine(_mace.statName);
-            Console.WriteLine(_hammer.statName);
+            Console.WriteLine("1. " + _longSword.statName);
+            Console.WriteLine("2. " + _dagger.statName);
+            Console.WriteLine("3. " + _ax.statName);
+            Console.WriteLine("4. " + _staff.statName);
+            Console.WriteLine("5. " + _mace.statName);
+            Console.WriteLine("6. " + _hammer.statName);
 
-
-            char input;
-            GetInput(out input, "Loadout 1", "Loadout 2", "Welcome! CHOOSE YOUR WEAPON!");
+            Console.WriteLine("Choose your weapon!");
+            char input = Console.ReadKey().KeyChar;
 
             switch (input)
             {
@@ -230,6 +229,7 @@ namespace HelloWorld
                         break;
                     }
             }
+            Continue();
         }
 
         public void StartBattle()
