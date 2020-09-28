@@ -78,6 +78,12 @@ namespace HelloWorld
         {
             return _health > 0;
         }
+
+        public bool GetNotAlive()
+        {
+            return _health < 1;
+        }
+
         public void PrintStats()
         {
             Console.WriteLine("\nName: " + _name);

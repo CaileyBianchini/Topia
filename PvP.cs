@@ -197,30 +197,38 @@ namespace HelloWorld
             char input;
             GetInput(out input, "Loadout 1", "Loadout 2", "Welcome! CHOOSE YOUR WEAPON!");
 
-            if (input == '1')
+            switch (input)
             {
-                player.AddItemToInventory(_longSword, 0);
-            }
-            if (input == '2')
-            {
-                player.AddItemToInventory(_dagger, 1);
-            }
-            if (input == '3')
-            {
-                player.AddItemToInventory(_ax, 2);
-            }
-        
-            if (input == '4')
-            {
-                player.AddItemToInventory(_staff, 0);
-            }
-            if (input == '5')
-            {
-                player.AddItemToInventory(_mace, 1);
-            }
-            if (input == '6')
-            { 
-                player.AddItemToInventory(_hammer, 2);
+                case '1':
+                    {
+                        player.AddItemToInventory(_longSword, 0);
+                        break;
+                    }
+                case '2':
+                    {
+                        player.AddItemToInventory(_dagger, 0);
+                        break;
+                    }
+                case '3':
+                    {
+                        player.AddItemToInventory(_ax, 0);
+                        break;
+                    }
+                case '4':
+                    {
+                        player.AddItemToInventory(_staff, 0);
+                        break;
+                    }
+                case '5':
+                    {
+                        player.AddItemToInventory(_mace, 0);
+                        break;
+                    }
+                case '6':
+                    {
+                        player.AddItemToInventory(_hammer, 0);
+                        break;
+                    }
             }
         }
 

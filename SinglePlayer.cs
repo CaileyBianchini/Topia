@@ -112,6 +112,7 @@ namespace HelloWorld
         bool _gameOver = false;
 
         private Player _player1;
+        private Player _DemonKing;
 
         //weapons
         private Items _longSword;
@@ -194,6 +195,12 @@ namespace HelloWorld
             return player;
         }
 
+        public Player CreateEnemy()
+        {
+            Player player = new Player("Demon King", 300, 30, 3);
+            return player;
+        }
+
 
         public void Run()
         {
@@ -214,6 +221,7 @@ namespace HelloWorld
         public void Update()
         {
             OpenMenu();
+            _DemonKing = CreateEnemy();
             Adventure();
         }
 
@@ -237,9 +245,38 @@ namespace HelloWorld
 
             Console.Clear();
 
+            if (_player1.GetNotAlive())
+            {
+                Console.WriteLine("G A M E   O V E R.");
+                Console.WriteLine("You Died.");
+            }
+            else if (_DemonKing.GetNotAlive())
+            {
+                Console.WriteLine("Congradulations! You defeated the Demon King! ");
+                //blah blah blah more dialogue
+            }
+            else
+            {
+                Console.WriteLine("Version 0.0.1");
+                Console.WriteLine("You reached the end of what we have. This is an early version of the game.");
+                char input;
+                GetInput(out input, "Yes", "No", "Do you wish to save?");
+                if(input == '1')
+                {
+                    Console.WriteLine("Saving . . .");
+                    Console.ReadKey();
+                    Save();
+                    Console.WriteLine("Have a great day!");
+                }
+                else
+                {
+                    Console.WriteLine("Oh well");
+                }
+            }
 
-
-
+            Console.WriteLine("Press [Enter] to End Game.");
+            Console.ReadLine();
+            Console.Clear();
         }
 
 
