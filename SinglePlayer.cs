@@ -8,12 +8,105 @@ namespace HelloWorld
     class SinglePlayer
     {
 
-        struct Items
+
+        public void Continue()
         {
-            public int statBoost;
-            public string statName;
-            public int itemPrice;
+            Console.WriteLine("\nPress [Enter] to continue.");
+            Console.ReadKey();
+            Console.Clear();
         }
+
+        //Inputs
+
+        //two options
+        public void GetInput(out char input, string option1, string option2, string quiry)
+        {
+            Console.WriteLine(quiry);
+            Console.WriteLine("1. " + option1);
+            Console.WriteLine("2. " + option2);
+            input = ' ';
+
+            //loops till valid is received
+            while (input != '1' && input != '2')
+            {
+                input = Console.ReadKey().KeyChar;
+                if (input != '1' && input != '2')
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.");
+
+                }
+            }
+
+            Continue();
+        }
+
+        //three options
+        public void GetInput(out char input, string option1, string option2, string option3, string quiry)
+        {
+            Console.WriteLine(quiry);
+            Console.WriteLine("1. " + option1);
+            Console.WriteLine("2. " + option2);
+            Console.WriteLine("3. " + option3);
+            input = ' ';
+
+            //loops till valid is received
+            while (input != '1' && input != '2' && input != '3')
+            {
+                input = Console.ReadKey().KeyChar;
+                if (input != '1' && input != '2' && input != '3')
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.");
+
+                }
+            }
+
+            Continue();
+        }
+
+        //four options
+        public void GetInput(out char input, string option1, string option2, string option3, string option4, string quiry)
+        {
+            Console.WriteLine(quiry);
+            Console.WriteLine("1. " + option1);
+            Console.WriteLine("2. " + option2);
+            Console.WriteLine("3. " + option3);
+            Console.WriteLine("4. " + option4);
+            input = ' ';
+
+            //loops till valid is received
+            while (input != '1' && input != '2' && input != '3' && input != '4')
+            {
+                input = Console.ReadKey().KeyChar;
+                if (input != '1' && input != '2' && input != '3' && input != '4')
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.");
+
+                }
+            }
+
+            Continue();
+        }
+
+        //six options
+        public void GetInput(out char input, string quiry)
+        {
+            Console.WriteLine(quiry);
+            input = ' ';
+
+            //loops till valid is received
+            while (input != '1' && input != '2' && input != '3' && input != '4' && input != '5' && input != '6')
+            {
+                input = Console.ReadKey().KeyChar;
+                if (input != '1' && input != '2' && input != '3' && input != '4' && input != '5' && input != '6')
+                {
+                    Console.WriteLine("Invalid Input. Please Try Again.");
+
+                }
+            }
+
+            Continue();
+        }
+
 
 
         bool _gameOver = false;
@@ -64,6 +157,33 @@ namespace HelloWorld
 
         }
 
+        public void Save()
+        {
+            StreamWriter writer = new StreamWriter("SaveData.txt");
+            _player1.Save(writer);
+            writer.Close();
+        }
+
+        public virtual void Load()
+        {
+            StreamReader reader = new StreamReader("SaveData.txt");
+            //save the characters stats
+            _player1.Load(reader);
+        }
+
+        public void OpenMenu()
+        {
+            char input;
+            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
+            if (input == '2')
+            {
+                Load();
+                return;
+            }
+
+            _player1 = CreateCharacter();
+            Save();
+        }
 
         public Player CreateCharacter()
         {
@@ -77,17 +197,23 @@ namespace HelloWorld
 
         public void Run()
         {
-
+            Console.WriteLine("Hello Player!");
+            Start();
+            while (_gameOver == false)
+            {
+                Update();
+            }
+            End();
         }
 
         public void Start()
         {
-
+            InitializeItems();
         }
 
         public void Update()
         {
-
+            OpenMenu();
         }
 
         public void End()

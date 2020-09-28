@@ -40,8 +40,8 @@ namespace HelloWorld
         {
             //save the characters stats
             writer.WriteLine(_name);
-            writer.WriteLine(_health);
             writer.WriteLine(_damage);
+            writer.WriteLine(_health);
         }
 
 

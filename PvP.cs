@@ -5,16 +5,16 @@ using System.Text;
 
 namespace HelloWorld
 {
+    struct Items
+    {
+        public int statBoost;
+        public string statName;
+        public int itemPrice;
+    }
+
     class PvP
     {
 
-
-        struct Items
-        {
-            public int statBoost;
-            public string statName;
-            public int itemPrice;
-        }
 
 
         bool _gameOver = false;
@@ -178,7 +178,7 @@ namespace HelloWorld
         {
             StreamReader reader = new StreamReader("SaveData.txt");
             //save the characters stats
-            _player2.Load(reader);
+            _player1.Load(reader);
             _player2.Load(reader);
         }
 
@@ -244,7 +244,7 @@ namespace HelloWorld
                 char input;
 
                 //Player One
-                GetInput(out input, "Attack", "Peace", "Open Invatory", "\nPlayer one! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save","\nPlayer one! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -256,10 +256,14 @@ namespace HelloWorld
                     Console.WriteLine("\nPlayer one went with a peaceful option! Hopefully Player two feels the same!");
 
                 }
+                if (input == '3')
+                {
+                    Save();
+                }
                 Continue();
 
                 //Player Two
-                GetInput(out input, "Attack", "Peace", "Open Inventory", "Player two! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save", "Player two! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -270,6 +274,10 @@ namespace HelloWorld
                 {
                     Console.WriteLine("\nPlayer two went with a peaceful option! Hopefully Player one feels the same!");
 
+                }
+                if (input == '3')
+                {
+                    Save();
                 }
 
                 Continue();
