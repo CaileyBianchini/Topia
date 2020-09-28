@@ -214,11 +214,36 @@ namespace HelloWorld
         public void Update()
         {
             OpenMenu();
+            Adventure();
         }
 
         public void End()
         {
 
         }
+
+
+        public void Adventure()
+        {
+            while (_player1.GetIsAlive())
+            {
+
+
+
+
+
+
+            }
+
+            Console.Clear();
+
+
+
+
+        }
+
+
+
+
     }
 }
