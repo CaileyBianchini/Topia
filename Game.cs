@@ -63,7 +63,7 @@ namespace HelloWorld
         public void Update()
         {
             char input;
-            GetInput(out input, "Single Player", "PvP[Not Available]", "Which style do you wish to play?");
+            GetInput(out input, "Single Player", "PvP", "Which style do you wish to play?");
 
 
             //choice 1 being skipped right now :(

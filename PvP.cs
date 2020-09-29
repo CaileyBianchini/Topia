@@ -240,9 +240,9 @@ namespace HelloWorld
             while (_player1.GetIsAlive() && _player2.GetIsAlive())
             {
                 //prints player one and two's stat
-                Console.WriteLine("Player one");
+                //prints player one's stats
                 _player1.PrintStats();
-                Console.WriteLine("Player two");
+                //prints player two's stats
                 _player2.PrintStats();
 
                 char input;
@@ -291,16 +291,20 @@ namespace HelloWorld
         public void OpenMenu()
         {
             char input;
-            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
+            GetInput(out input, "Create new character", "Load Character[Not Available]", "What do you wish to do?");
             if (input == '2')
             {
                 Load();
                 return;
             }
-
-            _player1 = CreateCharacter();
-            _player2 = CreateCharacter();
-            Save();
+            else
+            {
+                _player1 = CreateCharacter();
+                _player2 = CreateCharacter();
+                Save();
+                return;
+            }
+            
         }
 
         public Player CreateCharacter()

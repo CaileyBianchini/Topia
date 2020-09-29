@@ -199,24 +199,41 @@ namespace HelloWorld
 
         public Player CreateCharacter()
         {
-            Console.WriteLine("What is your name?");
-            string name = Console.ReadLine();
-            Player player = new Player(name, 100, 10, 0, 3);
-            //SelectRoles(player);
-            return player;
+            Console.Clear();
+            Console.WriteLine("1. Wizard");
+            Console.WriteLine("2. Knight");
+            Console.WriteLine("3. ");
+            Console.WriteLine("4. ");
+            Console.WriteLine("5. ");
+            Console.WriteLine("6. ");
+
+            Console.WriteLine("Choose your role!");
+            char input = Console.ReadKey().KeyChar;
+
+            //float healthVal, float damageVal, string nameVal, int levelVal, int manaVal, int charismaVal, int karmaVal, int luckVal, int stealthVal, string roleVal
+            switch (input)
+            {
+                case '1':
+                    {
+                        Console.WriteLine("What is your name?");
+                        string name = Console.ReadLine();
+                        _player1 = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard");
+                        return _player1;
+                    }
+                case '2':
+                    {
+                        Console.WriteLine("What is your name?");
+                        string name = Console.ReadLine();
+                        _player1 = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Knight");
+                        return _player1;
+                    }
+            
+            
+            }
+
+
         }
 
-        public Player ChooseClass()
-        {
-            _player1.ChangingStats();
-            return _player1;
-        }
-
-        public Player ChooseRace()
-        {
-            _player1.ChangingRace();
-            return _player1;
-        }
 
         public Player CreateEnemy()
         {
@@ -297,16 +314,7 @@ namespace HelloWorld
                 Console.WriteLine("Everything changed when the Demon King appeared. They're random attacks became organized, the damage done tripled, and the causalties worsened. We were losing hope. That was until a prophecy was shared, 'Summon a Hero and the world shall be saved.' and thus a sliver of hope was born!"); //aparently i misspelled slimmer? How do I spell it then?
                 Console.WriteLine("~~~~~~~~~~");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("You awoke in a bright marble room, standing in front of you a tall and goddess like dark elf and her eyes had galxies in them. There was a halo behing her making her even more goddess like, she gives you small smile and open her arms.");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("'What is your name Hero?' the woman asks.");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("You gave her your name: " + _player1.GetName());
-                string race = Console.ReadLine();
-                Console.WriteLine("  ");
-                Console.WriteLine("-Level Gained-");
-                _player1.LevelUp();
-                Console.WriteLine("     ");
+                
             }
 
             
