@@ -20,7 +20,7 @@ namespace HelloWorld
             Console.Clear();
         }
 
-
+        //this just prints the Title of the game out in Cyan
         public void Title()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -140,7 +140,7 @@ namespace HelloWorld
         private Shop shop;
         private Items shopInventory;
         private Items _money;
-
+        //really need to figure out how to implement the money system uuuuuugh
 
 
         public void InitializeItems()
@@ -171,6 +171,7 @@ namespace HelloWorld
 
         }
 
+        //this saves the functions value
         public void Save()
         {
             StreamWriter writer = new StreamWriter("SaveData.txt");
@@ -178,6 +179,7 @@ namespace HelloWorld
             writer.Close();
         }
 
+        //this loads the functions value
         public virtual void Load()
         {
             StreamReader reader = new StreamReader("SaveData.txt");
@@ -185,6 +187,7 @@ namespace HelloWorld
             _player.Load(reader);
         }
 
+        //this allows you to either create a new character or load one
         public void OpenMenu()
         {
             char input;
@@ -199,9 +202,11 @@ namespace HelloWorld
             Save();
         }
 
+        //this creates a new player
         public AdvancedPlayer CreateCharacter()
         {
             Console.Clear();
+            //this is you choosing which role you want
             Console.WriteLine("1. Wizard");
             Console.WriteLine("2. Knight");
             Console.WriteLine("3. Hero");
@@ -286,7 +291,7 @@ namespace HelloWorld
 
         }
 
-
+        //this is creating an enemy demon king
         public Player CreateEnemy()
         {
             Player player = new Player("Demon King", 300, 30, 100, 3);
@@ -355,7 +360,7 @@ namespace HelloWorld
             Console.Clear();
         }
 
-
+        //this is the story
         public void Adventure()
         {
             while (_player.GetIsAlive())
@@ -387,6 +392,62 @@ namespace HelloWorld
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.White;
 
+                Console.WriteLine("A bright light blinded you after you were given the quest by the woman. When the light finally cleared you realized you were in the center of a crowd.");
+                Console.WriteLine("You look around and notice that the town was a mix of races: Elves, Humans, Drawfs, and more. The crowd then departs and an Ederly Dragon Born walks inbetween the parted group.");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Are you a Hero? Did Goddess Cecilia send you?");
+
+                Console.ForegroundColor = ConsoleColor.White;
+
+                char input;
+                GetInput(out input,"Answer him honestly about what you saw and what she said.", "A Goddess? Sorry I don't know who you are talking about.", "Your response:");
+
+                if (input == '1')
+                {
+
+                    for(int i = 0; i < 2; i++)
+                    {
+                        _player.CharismaUp();
+                    }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _player.KarmaUp();
+                    }
+                    Console.WriteLine("Everyone around began cheering for finally the Hero sent by their Goddess Cecilia.");
+                    Console.WriteLine("The Elder grabbed your arm happily 'Since you were sent by our goddess we must treat you well!' He handed you a bag of what you presume to be a bag of coins.");
+                    Console.WriteLine("'Quickly we must show you to your room! And no worries its on us!' You followed the Elder to the tavern, and was greeted by the woman at the front desk.");
+                    Console.WriteLine("'Welcome to the Kraken Tavern, for one room its 2 silver coins!' the elderly walked up to her, 'This young hero sent by the Goddess! No need to make them pay the fee!'");
+                    Console.WriteLine("The woman gased and quickly grabbed a set of keys behind her, 'Room 11, Hero....?' you realized that you haven't given them your name, '" + _player.GetName() + "' she nodded to herself 'Here you go Hero " + _player.GetName() + ", your room keys!'");
+                    Console.WriteLine("You found your room, entered it then layed onto the bed, waiting for the next day to come.");
+
+                    Continue();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Congradulations! You gained 2 charisma and 3 karma!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                if (input == '2')
+                {
+                    //karma = karma - 1;
+                    Console.WriteLine("Everyone around you grew gloomy as you told them 'I do not know who you are talking about.' Even the Elders calm demeanor was shattered in his dissapointment.");
+                    Console.WriteLine("You were quite uncomfortable with their gazes of awe but the gloom in the air is even much more unnerving. 'Do you have a place to stay?' you asked the Elder.");
+                    Console.WriteLine("'We do.' He answered shortly. He pointed towards a tavern that seemed to have a second level. Perhaps the main floor was similar to a pub and the other floor may be a hotel. You bowed to the Elder and with a polite tone 'Thank you.'");
+                    Console.WriteLine("You walked in. You were greeted by a woman at the front desk 'Welcome to the Kraken Tavern, for one room its 2 copper coins!' You walked up to her and handed her the 2 silver coins. 'Here you go! Room 11! May I know your name so I can put it in the Log Book!'");
+                    //coppercoins = coppercoins - 2;
+                    Console.WriteLine("'" + _player.GetName() + "'");
+                    Console.WriteLine("You found your room, entered it and then layed onto the bed, wating for the next day to come.");
+
+                    Continue();
+
+                    //Console.WriteLine("It's a sad day, you were taken to a world you do not know of, you had already used 2 silver coins and lost 2 karma points. Hopefully tommorrow would be better than it was today.");
+
+                }
+
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+
+                Console.WriteLine("- E N D  O F  D A Y  O N E -");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
             }
 

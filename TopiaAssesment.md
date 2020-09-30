@@ -62,6 +62,38 @@
 
 **Attributes**
 
+         Name: AddInventory()
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+         Name: 
+             Description: 
+             Type: 
+
+**File**: AdvancedPlayer.cs
+
+**Attributes**
+
          Name: 
              Description: 
              Type: 
