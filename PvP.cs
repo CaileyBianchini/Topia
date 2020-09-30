@@ -234,6 +234,7 @@ namespace HelloWorld
 
         public void StartBattle()
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("FIGHT TILL ONE DIES!!!!!!");
             for (int i = 0; i < 4; i++)
             {
@@ -245,13 +246,16 @@ namespace HelloWorld
             {
                 //prints player one and two's stat
                 //prints player one's stats
+                Console.ForegroundColor = ConsoleColor.Blue;
                 _player1.PrintStats();
                 //prints player two's stats
+                Console.ForegroundColor = ConsoleColor.Green;
                 _player2.PrintStats();
 
                 char input;
 
                 //Player One
+                Console.ForegroundColor = ConsoleColor.Blue;
                 GetInput(out input, "Attack", "Peace", "Save[Not Available]","\nPlayer one! What do you wish to do?");
 
                 if (input == '1')
@@ -271,6 +275,7 @@ namespace HelloWorld
                 Continue();
 
                 //Player Two
+                Console.ForegroundColor = ConsoleColor.Green;
                 GetInput(out input, "Attack", "Peace", "Save[Not Available]", "Player two! What do you wish to do?");
 
                 if (input == '1')
@@ -348,7 +353,7 @@ namespace HelloWorld
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Battle Over! Thank you for playing Version 0.0.2");
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Press [Enter] to close game.");
             Console.ReadKey();
         }
