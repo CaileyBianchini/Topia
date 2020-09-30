@@ -449,6 +449,10 @@ namespace HelloWorld
                 Console.WriteLine("");
                 Console.WriteLine("");
 
+                //TEMPERARY!!!
+                //ERASE SOON \/\/\/
+                _gameOver = true;
+                return;
             }
 
             
