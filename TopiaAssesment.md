@@ -17,7 +17,7 @@
 
 2. Input Information
 - Get Input Numbers - Player will be asked to select things out of a list, can be two choices, some will have 6 choices.
-- Typing in Roles - Only towards the start of Single Player Adventure you are alowed to type in the role rather then given a list.
+- Name? - You will be asked to type in the name you want for the character you will be plaing.
 
 1.  Output Information
 - 
@@ -26,10 +26,17 @@
  
 ## II. Errors
 
- 1. Save and Load
-    - Save and Loading not working. Either keeps looping or doesn't actually do what it is supposed to do.
+    1. Save and Load
+        - Save and Loading not working. Either keeps looping or doesn't actually do what it is supposed to do.
 
-
+## III. Future Ideas
+    1. Money 
+        - Will be adding a currency in the game that will allow players to buy things, will be gold, silver, copper.
+    2. A Shop
+        -Will be adding functions to the Shop Class, that will allow player to buy items: weapons, potions, key items.
+    3. More episode/days for singleplayer
+        - Currently has one day for the single player adventure 
+    
 
 ![image](images_gifs/Movement.png)
 
