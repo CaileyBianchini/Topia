@@ -40,6 +40,14 @@
 
 ![image](images_gifs/Movement.png)
 
+### Visuals
+
+## 1. Menu
+
+![image](DocumentPicture/TopiaMenu.png)
+
+## 2. Introduction In SInglePlayer format
+![image](DocumentPicture/IntroductionTopia.png)
 
 ### Object Information
 
