@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.IO;
+using System.Threading.Tasks;
 using System.Text;
 
 namespace HelloWorld
@@ -64,7 +66,9 @@ namespace HelloWorld
 
         public void Continue()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\nPress [Enter] to continue.");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
             Console.Clear();
         }
@@ -248,7 +252,7 @@ namespace HelloWorld
                 char input;
 
                 //Player One
-                GetInput(out input, "Attack", "Peace", "Save","\nPlayer one! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save[Not Available]","\nPlayer one! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -267,7 +271,7 @@ namespace HelloWorld
                 Continue();
 
                 //Player Two
-                GetInput(out input, "Attack", "Peace", "Save", "Player two! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save[Not Available]", "Player two! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -342,7 +346,9 @@ namespace HelloWorld
 
         public void End()
         {
-            Console.WriteLine("Battle Over!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Battle Over! Thank you for playing Version 0.0.2");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Press [Enter] to close game.");
             Console.ReadKey();
         }

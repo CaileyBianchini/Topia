@@ -13,7 +13,9 @@ namespace HelloWorld
         //allows player time before clearing screen
         public void Continue()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\nPress [Enter] to continue.");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
             Console.Clear();
         }
@@ -122,7 +124,7 @@ namespace HelloWorld
 
         bool _gameOver = false;
 
-        private Player _player1;
+        private AdvancedPlayer _player;
         private Player _DemonKing;
 
         //weapons
@@ -172,7 +174,7 @@ namespace HelloWorld
         public void Save()
         {
             StreamWriter writer = new StreamWriter("SaveData.txt");
-            _player1.Save(writer);
+            _player.Save(writer);
             writer.Close();
         }
 
@@ -180,7 +182,7 @@ namespace HelloWorld
         {
             StreamReader reader = new StreamReader("SaveData.txt");
             //save the characters stats
-            _player1.Load(reader);
+            _player.Load(reader);
         }
 
         public void OpenMenu()
@@ -193,11 +195,11 @@ namespace HelloWorld
                 return;
             }
 
-            _player1 = CreateCharacter();
+            _player = CreateCharacter();
             Save();
         }
 
-        public Player CreateCharacter()
+        public AdvancedPlayer CreateCharacter()
         {
             Console.Clear();
             Console.WriteLine("1. Wizard");
@@ -217,15 +219,23 @@ namespace HelloWorld
                     {
                         Console.WriteLine("What is your name?");
                         string name = Console.ReadLine();
-                        _player1 = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard");
-                        return _player1;
+                        AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard", 3);
+                        return _player;
                     }
                 case '2':
                     {
                         Console.WriteLine("What is your name?");
                         string name = Console.ReadLine();
-                        _player1 = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Knight");
-                        return _player1;
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Knight", 3);
+                        return _player;
+                    }
+
+                default:
+                    {
+                        Console.WriteLine("What is your name?");
+                        string name = Console.ReadLine();
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        return _player;
                     }
             
             
@@ -269,7 +279,7 @@ namespace HelloWorld
         {
             Console.Clear();
 
-            if (_player1.GetNotAlive())
+            if (_player.GetNotAlive())
             {
                 Console.WriteLine("G A M E   O V E R.");
                 Console.WriteLine("You Died.");
@@ -281,7 +291,7 @@ namespace HelloWorld
             }
             else
             {
-                Console.WriteLine("Version 0.0.1");
+                Console.WriteLine("Version 0.0.2");
                 Console.WriteLine("You reached the end of what we have. This is an early version of the game.");
                 char input;
                 GetInput(out input, "Yes", "No", "Do you wish to save?");
@@ -306,7 +316,7 @@ namespace HelloWorld
 
         public void Adventure()
         {
-            while (_player1.GetIsAlive())
+            while (_player.GetIsAlive())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("~~~~~~~~~~");

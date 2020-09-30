@@ -12,14 +12,13 @@ namespace HelloWorld
 
         public Player() : base()
         {
-            _inventory = new Items[3];
+            
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
         }
         public Player(string nameVal, float healthVal, float damageVal, int levelVal, int inventorySize)
-            : base(damageVal, healthVal, nameVal)
+            : base(damageVal, healthVal, nameVal, inventorySize)
         {
-            _inventory = new Items[inventorySize];
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
         }

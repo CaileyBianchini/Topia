@@ -11,16 +11,19 @@ namespace HelloWorld
         protected float _damage;
         protected float _specialdamage;
         private string _name;
-        
+        protected Items[] _inventory;
+
 
         public Character()
         {
+            _inventory = new Items[3];
             _health = 100;
             _name = "Player";
             _damage = 10;
         }
-        public Character(float healthVal, float damageVal, string nameVal)
+        public Character(float healthVal, float damageVal, string nameVal, int inventorySize)
         {
+            _inventory = new Items[inventorySize];
             _health = healthVal;
             _name = nameVal;
             _damage = damageVal;
