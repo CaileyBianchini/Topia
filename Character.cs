@@ -7,10 +7,10 @@ namespace HelloWorld
 {
     class Character
     {
-        private float _health;
+        protected float _health;
         protected float _damage;
         protected float _specialdamage;
-        private string _name;
+        protected string _name;
         protected Items[] _inventory;
 
 

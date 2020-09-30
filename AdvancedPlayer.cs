@@ -49,6 +49,9 @@ namespace HelloWorld
 
         public void PrintStats()
         {
+            Console.WriteLine("\nName: " + _name);
+            Console.WriteLine("Health: " + _health);
+            Console.WriteLine("Damage: " + _damage);
             Console.WriteLine("\nLevel: " + _level);
             Console.WriteLine("Role: " + _role);
             Console.WriteLine("Mana: " + _mana);
@@ -96,6 +99,20 @@ namespace HelloWorld
             return _level + 1;
         }
 
+        
+        public int CharismaUp()
+        {
+            return _charisma + 1;
+        }
 
+        public int KarmaUp()
+        {
+            return _karma + 1;
+        }
+
+        public int LuckUp()
+        {
+            return _luck + 1;
+        }
     }
 }
