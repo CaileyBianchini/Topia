@@ -188,7 +188,7 @@ namespace HelloWorld
         public void OpenMenu()
         {
             char input;
-            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
+            GetInput(out input, "Create new character", "Load Character[Not Available]", "What do you wish to do?");
             if (input == '2')
             {
                 Load();
@@ -204,10 +204,10 @@ namespace HelloWorld
             Console.Clear();
             Console.WriteLine("1. Wizard");
             Console.WriteLine("2. Knight");
-            Console.WriteLine("3. ");
-            Console.WriteLine("4. ");
-            Console.WriteLine("5. ");
-            Console.WriteLine("6. ");
+            Console.WriteLine("3. Hero");
+            Console.WriteLine("4. Monk");
+            Console.WriteLine("5. Ranger");
+            Console.WriteLine("6. Bard");
 
             Console.WriteLine("Choose your role!");
             char input = Console.ReadKey().KeyChar;
@@ -217,24 +217,66 @@ namespace HelloWorld
             {
                 case '1':
                     {
-                        Console.WriteLine("What is your name?");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
                         AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
                 case '2':
                     {
-                        Console.WriteLine("What is your name?");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Knight", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 50, 3, 0, 2, 0, "Knight", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        return _player;
+                    }
+                case '3':
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
+                        string name = Console.ReadLine();
+                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        return _player;
+                    }
+                case '4':
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
+                        string name = Console.ReadLine();
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        return _player;
+                    }
+                case '5':
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
+                        string name = Console.ReadLine();
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        return _player;
+                    }
+                case '6':
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
+                        string name = Console.ReadLine();
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
 
                 default:
                     {
-                        Console.WriteLine("What is your name?");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
                         AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
             
@@ -324,7 +366,28 @@ namespace HelloWorld
                 Console.WriteLine("Everything changed when the Demon King appeared. They're random attacks became organized, the damage done tripled, and the causalties worsened. We were losing hope. That was until a prophecy was shared, 'Summon a Hero and the world shall be saved.' and thus a sliver of hope was born!"); //aparently i misspelled slimmer? How do I spell it then?
                 Console.WriteLine("~~~~~~~~~~");
                 Console.ForegroundColor = ConsoleColor.White;
-                
+                Console.WriteLine("You awoke in a bright marble room, standing in front of you a tall and goddess like dark elf and her eyes had galxies in them. There was a halo behing her making her even more goddess like, she gives you small smile and open her arms.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("'Welcome Hero " + _player.GetName() + "! You were summouned from your world to help the world of Topia that is raveged by demons. There is only one way to return home. That is to defeat the Demon King! Please understand that this is for the greater good! But no worries I will help aid you in this Advanture!'");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("The room became brighter.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("It seems that it is time for you to go. I thank you for your service Hero " + _player.GetName() + ".'");
+
+                Continue();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("- Quest Recieved: Defeat the Demon King! - ");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("- D A Y  O N E -");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.White;
+
+
             }
 
             

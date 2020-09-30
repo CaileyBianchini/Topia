@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.IO;
 
 namespace HelloWorld
@@ -13,7 +15,9 @@ namespace HelloWorld
 
         public void Continue()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\nPress [Enter] to continue.");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
             Console.Clear();
         }
@@ -56,6 +60,7 @@ namespace HelloWorld
         //Performed once when the game begins
         public void Start()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Welcome to The Game!");
         }
 
@@ -69,6 +74,7 @@ namespace HelloWorld
             //choice 1 being skipped right now :(
             if (input == '1')
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 SinglePlayer singleplayer = new SinglePlayer();
                 //Run the Game
                 singleplayer.Run();
@@ -77,6 +83,7 @@ namespace HelloWorld
             }
             if (input == '2')
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 PvP pvp = new PvP();
                 //Run the Game
                 pvp.Run();
