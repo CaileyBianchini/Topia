@@ -10,7 +10,7 @@
 
 	- **Name**: Topia
 
-	- **Problem Statement**: 
+	- **Problem Statement**: Check all the requirments for Assessment
 	
 	- **Problem Specifications**:  
     
@@ -24,9 +24,11 @@
 - 
 - 
  
-## II. Design
+## II. Errors
 
- _Tittle Screen_
+ 1. Save and Load
+    - Save and Loading not working. Either keeps looping or doesn't actually do what it is supposed to do.
+
 
 
 ![image](images_gifs/Movement.png)
