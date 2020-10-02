@@ -28,11 +28,15 @@ namespace HelloWorld
             _name = nameVal;
             _damage = damageVal;
         }
+
+        //this will use TakeDamage against the enemy using players damage
         public virtual float Attack(Character enemy)
         {
             float damageTaken = enemy.TakeDamage(_damage);
             return damageTaken;
         }
+
+        //this will take one character and use their damage against another
         public virtual float TakeDamage(float damageVal)
         {
             _health -= damageVal;

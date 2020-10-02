@@ -17,7 +17,7 @@ namespace HelloWorld
         private Items _currentWeapon;
         private Items _hands;
 
-        //Calls the default constructor for the wizard, and then calls the base classes constructor.
+        //Calls the default constructor for the Advanced Player, and then calls the base classes constructor.
         public AdvancedPlayer() : base()
         {
             _role = "Hero";
@@ -47,7 +47,7 @@ namespace HelloWorld
             _hands.statBoost = 0;
         }
 
-        public void PrintStats()
+        public void PrintAdvancedStats()
         {
             Console.WriteLine("\nName: " + _name);
             Console.WriteLine("Health: " + _health);
@@ -61,12 +61,14 @@ namespace HelloWorld
             Console.WriteLine("Stealth: " + _stealth);
         }
 
+        //this will put item into a slot of inventory 
         public void AddItemToInventory(Items item, int index)
         {
             _inventory[index] = item;
 
         }
 
+        //this checks to see if the inventory has at least one item inside of the slots
         public bool Contains(int itemIndex)
         {
             if (itemIndex > 0 && itemIndex < _inventory.Length)
@@ -76,6 +78,7 @@ namespace HelloWorld
             return false;
         }
 
+        //this will allow the item from the inventory to affect the players stats
         public void EquipItem(int itemIndex)
         {
             if (Contains(itemIndex) == true)
@@ -84,16 +87,20 @@ namespace HelloWorld
             }
         }
 
+        //this is similar to EquipItem() however it takes away from the players stats
         public void UnequipItem()
         {
             _currentWeapon = _hands;
         }
 
+        //this will allow the program to print what is in the slots for the inventory =
         public Items[] GetInventory()
         {
             return _inventory;
         }
 
+
+        //everything below will +1 the stats
         public int LevelUp()
         {
             return _level + 1;
