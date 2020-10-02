@@ -26,10 +26,7 @@
  
 ## II. Errors
 
-    1. Save and Load
-        - Save and Loading not working. Either keeps looping or doesn't actually do what it is supposed to do.
-    2. Weapon Selection PvP
-        - When selecting an item for PvP it crashes
+    1. None
 
 ## III. Future Ideas
     1. Money 
