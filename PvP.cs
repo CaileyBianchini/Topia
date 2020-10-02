@@ -207,31 +207,37 @@ namespace HelloWorld
                 case '1':
                     {
                         player.AddItemToPocket(_longSword, 0);
+                        player.EquipItem(0);
                         break;
                     }
                 case '2':
                     {
                         player.AddItemToPocket(_dagger, 0);
+                        player.EquipItem(0);
                         break;
                     }
                 case '3':
                     {
                         player.AddItemToPocket(_ax, 0);
+                        player.EquipItem(0);
                         break;
                     }
                 case '4':
                     {
                         player.AddItemToPocket(_staff, 0);
+                        player.EquipItem(0);
                         break;
                     }
                 case '5':
                     {
                         player.AddItemToPocket(_mace, 0);
+                        player.EquipItem(0);
                         break;
                     }
                 case '6':
                     {
                         player.AddItemToPocket(_hammer, 0);
+                        player.EquipItem(0);
                         break;
                     }
             }

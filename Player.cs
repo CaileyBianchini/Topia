@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -25,6 +26,46 @@ namespace HelloWorld
             _hands.statBoost = 0;
         }
 
+        public virtual void Saving(StreamWriter writer)
+        {
+            //save the characters stats
+            writer.WriteLine(_name);
+            writer.WriteLine(_currentWeapon.statName);
+            writer.WriteLine(_damage);
+            writer.WriteLine(_currentWeapon.statBoost);
+            writer.WriteLine(_health);
+        }
+
+        public virtual bool Loading(StreamReader reader)
+        {
+            //creates variable to the store loaded data.
+            string name = reader.ReadLine();
+            string weaponname = reader.ReadLine();
+            float damage = 0;
+            int weapondamage = 0;
+            float health = 0;
+            
+            //checks to see if loading was successful
+            if (float.TryParse(reader.ReadLine(), out damage) == false)
+            {
+                return false;
+            }
+            if (float.TryParse(reader.ReadLine(), out health) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out weapondamage) == false)
+            {
+                return false;
+            }
+            //if successful, set update the member variables and return true.
+            _name = name;
+            _currentWeapon.statName = weaponname;
+            _damage = damage;
+            _currentWeapon.statBoost = weapondamage;
+            _health = health;
+            return true;
+        }
 
         public void AddItemToPocket(Items item, int index)
         {
@@ -59,6 +100,11 @@ namespace HelloWorld
             return _pocket;
         }
 
+        public override float Attack(Character enemy)
+        {
+            float totalDamage = _damage + _currentWeapon.statBoost;
+            return enemy.TakeDamage(totalDamage);
+        }
 
     }
 }

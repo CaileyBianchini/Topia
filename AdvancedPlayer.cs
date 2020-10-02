@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -13,6 +14,7 @@ namespace HelloWorld
         private int _karma;
         private int _luck;
         private int _stealth;
+        private float _specialdamage;
 
         private Items _currentWeapon;
         private Items _hands;
@@ -46,6 +48,82 @@ namespace HelloWorld
 
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
+        }
+
+        public virtual void Save1(StreamWriter writer)
+        {
+            //save the characters stats
+            writer.WriteLine(_name);
+            writer.WriteLine(_damage);
+            writer.WriteLine(_health);
+            writer.WriteLine(_role);
+            writer.WriteLine(_level);
+            writer.WriteLine(_mana);
+            writer.WriteLine(_charisma);
+            writer.WriteLine(_karma);
+            writer.WriteLine(_luck);
+            writer.WriteLine(_stealth);
+        }
+
+        public virtual bool Load1(StreamReader reader)
+        {
+            //creates variable to the store loaded data.
+            string name = reader.ReadLine();
+            float damage = 0;
+            float health = 0;
+            string role = reader.ReadLine();
+            int level = 0;
+            int mana = 0;
+            int charisma = 0;
+            int karma = 0;
+            int luck = 0;
+            int stealth = 0;
+
+            //checks to see if loading was successful
+            if (float.TryParse(reader.ReadLine(), out damage) == false)
+            {
+                return false;
+            }
+            if (float.TryParse(reader.ReadLine(), out health) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out level) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out mana) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out charisma) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out karma) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out luck) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out stealth) == false)
+            {
+                return false;
+            }
+            //if successful, set update the member variables and return true.
+            _name = name;
+            _damage = damage;
+            _health = health;
+            _role = role;
+            _level = level;
+            _mana = mana;
+            _charisma = charisma;
+            _karma = karma;
+            _luck = luck;
+            _stealth = stealth;
+            return true;
         }
 
         public void PrintAdvancedStats()

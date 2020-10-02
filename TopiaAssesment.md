@@ -130,6 +130,12 @@
          Name: LuckUp()
              Description: pluses 1 to total luck
              Type: public int
+         Name: Save1(StreamWriter writer)
+             Description: this is a basic save that only save name, health and damage
+             Type: public virtual void
+         Name: Load(StreamReader reader)
+             Description: this is the basic load, it will only load the name, health and damage
+             Type: public virtual bool
 
 **File**: Character.cs
 

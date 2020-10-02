@@ -9,7 +9,6 @@ namespace HelloWorld
     {
         protected float _health;
         protected float _damage;
-        protected float _specialdamage;
         protected string _name;
 
 
@@ -42,36 +41,6 @@ namespace HelloWorld
             return damageVal;
         }
 
-        public virtual void Save(StreamWriter writer)
-        {
-            //save the characters stats
-            writer.WriteLine(_name);
-            writer.WriteLine(_damage);
-            writer.WriteLine(_health);
-        }
-
-
-        public virtual bool Load(StreamReader reader)
-        {
-            //creates variable to the store loaded data.
-            string name = reader.ReadLine();
-            float damage = 0;
-            float health = 0;
-            //checks to see if loading was successful
-            if(float.TryParse(reader.ReadLine(), out damage) == false)
-            {
-                return false;
-            }
-            if (float.TryParse(reader.ReadLine(), out health) == false)
-            {
-                return false;
-            }
-            //if successful, set update the member variables and return true.
-            _name = name;
-            _damage = damage;
-            _health = health;
-            return true;
-        }
 
         public string GetName()
         {
@@ -90,7 +59,36 @@ namespace HelloWorld
             return _health < 1;
         }
 
-        
+        public virtual void Save(StreamWriter writer)
+        {
+            //save the characters stats
+            writer.WriteLine(_name);
+            writer.WriteLine(_damage);
+            writer.WriteLine(_health);
+        }
+
+        public virtual bool Load(StreamReader reader)
+        {
+            //creates variable to the store loaded data.
+            string name = reader.ReadLine();
+            float damage = 0;
+            float health = 0;
+
+            //checks to see if loading was successful
+            if (float.TryParse(reader.ReadLine(), out damage) == false)
+            {
+                return false;
+            }
+            if (float.TryParse(reader.ReadLine(), out health) == false)
+            {
+                return false;
+            }
+            //if successful, set update the member variables and return true.
+            _name = name;
+            _damage = damage;
+            _health = health;
+            return true;
+        }
 
         public void PrintStats()
         {
