@@ -172,7 +172,7 @@ namespace HelloWorld
         }
 
         //this saves the functions value
-        public void Save()
+        public virtual void Saving()
         {
             StreamWriter writer = new StreamWriter("SaveData.txt");
             _player.Save(writer);
@@ -180,9 +180,10 @@ namespace HelloWorld
         }
 
         //this loads the functions value
-        public virtual void Load()
+        public virtual void Loading()
         {
             StreamReader reader = new StreamReader("SaveData.txt");
+            string word = reader.ReadLine();
             //save the characters stats
             _player.Load(reader);
         }
@@ -194,12 +195,12 @@ namespace HelloWorld
             GetInput(out input, "Create new character", "Load Character[Not Available]", "What do you wish to do?");
             if (input == '2')
             {
-                Load();
+                Loading();
                 return;
             }
 
             _player = CreateCharacter();
-            Save();
+            Saving();
         }
 
         //this creates a new player
@@ -346,7 +347,7 @@ namespace HelloWorld
                 {
                     Console.WriteLine("Saving . . .");
                     Console.ReadKey();
-                    Save();
+                    Saving();
                     Console.WriteLine("Have a great day!");
                 }
                 else
