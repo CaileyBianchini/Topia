@@ -200,32 +200,32 @@ namespace HelloWorld
             {
                 case '1':
                     {
-                        player.AddItemToInventory(_longSword, 0);
+                        player.AddItemToPocket(_longSword, 0);
                         break;
                     }
                 case '2':
                     {
-                        player.AddItemToInventory(_dagger, 0);
+                        player.AddItemToPocket(_dagger, 0);
                         break;
                     }
                 case '3':
                     {
-                        player.AddItemToInventory(_ax, 0);
+                        player.AddItemToPocket(_ax, 0);
                         break;
                     }
                 case '4':
                     {
-                        player.AddItemToInventory(_staff, 0);
+                        player.AddItemToPocket(_staff, 0);
                         break;
                     }
                 case '5':
                     {
-                        player.AddItemToInventory(_mace, 0);
+                        player.AddItemToPocket(_mace, 0);
                         break;
                     }
                 case '6':
                     {
-                        player.AddItemToInventory(_hammer, 0);
+                        player.AddItemToPocket(_hammer, 0);
                         break;
                     }
             }

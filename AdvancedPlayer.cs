@@ -16,6 +16,7 @@ namespace HelloWorld
 
         private Items _currentWeapon;
         private Items _hands;
+        private Items[] _inventory;
 
         //Calls the default constructor for the Advanced Player, and then calls the base classes constructor.
         public AdvancedPlayer() : base()
@@ -33,7 +34,7 @@ namespace HelloWorld
         }
 
         public AdvancedPlayer(float healthVal, float damageVal, string nameVal, int levelVal, int manaVal, int charismaVal, int karmaVal, int luckVal, int stealthVal, string roleVal, int inventorySize)
-            : base(healthVal, damageVal, nameVal, inventorySize)
+            : base(healthVal, damageVal, nameVal)
         {
             _level = levelVal;
             _mana = manaVal;

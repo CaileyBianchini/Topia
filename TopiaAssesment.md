@@ -3,6 +3,7 @@
 | s208042    	|
 | Computer Graphics |
 | Topia Documentation |
+| https://github.com/CaileyBianchini/Topia |
 
 ## I. Requirements
 
@@ -79,7 +80,7 @@
 
 **Attributes**
 
-         Name: AddInventory()
+         Name: AddItemToPocket()
              Description: This will add the item that is chosen and put into the inventory slots
              Type: public void
          Name: Contains()
@@ -91,8 +92,8 @@
          Name: UnequipItem()
              Description: This takes the item from the player and takes out the items stats from the players stats
              Type: public void
-         Name: GetInventory()
-             Description: This grabs all the items from the inventory
+         Name: GetPocket()
+             Description: This grabs all the items from the characters pocket
              Type: public Items[]
 
 **File**: AdvancedPlayer.cs

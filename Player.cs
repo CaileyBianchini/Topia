@@ -6,33 +6,35 @@ namespace HelloWorld
 {
     class Player : Character
     {
-        private Items[] _inventory;
+        private Items[] _pocket;
         private Items _currentWeapon;
         private Items _hands;
 
+
         public Player() : base()
         {
-            
+            _pocket = new Items[3];
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
         }
-        public Player(string nameVal, float healthVal, float damageVal, int levelVal, int inventorySize)
-            : base(damageVal, healthVal, nameVal, inventorySize)
+        public Player(string nameVal, float healthVal, float damageVal, int levelVal, int pocketSize)
+            : base(damageVal, healthVal, nameVal)
         {
+            _pocket = new Items[pocketSize];
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
         }
 
 
-        public void AddItemToInventory(Items item, int index)
+        public void AddItemToPocket(Items item, int index)
         {
-            _inventory[index] = item;
+            _pocket[index] = item;
 
         }
 
         public bool Contains(int itemIndex)
         {
-            if (itemIndex > 0 && itemIndex < _inventory.Length)
+            if (itemIndex > 0 && itemIndex < _pocket.Length)
             {
                 return true;
             }
@@ -43,7 +45,7 @@ namespace HelloWorld
         {
             if (Contains(itemIndex) == true)
             {
-                _currentWeapon = _inventory[itemIndex];
+                _currentWeapon = _pocket[itemIndex];
             }
         }
 
@@ -52,9 +54,9 @@ namespace HelloWorld
             _currentWeapon = _hands;
         }
 
-        public Items[] GetInventory()
+        public Items[] GetPocket()
         {
-            return _inventory;
+            return _pocket;
         }
 
 
