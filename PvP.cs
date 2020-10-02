@@ -268,7 +268,7 @@ namespace HelloWorld
 
                 //Player One
                 Console.ForegroundColor = ConsoleColor.Blue;
-                GetInput(out input, "Attack", "Peace", "Save[Not Available]","\nPlayer one! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save","\nPlayer one! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -288,7 +288,7 @@ namespace HelloWorld
 
                 //Player Two
                 Console.ForegroundColor = ConsoleColor.Green;
-                GetInput(out input, "Attack", "Peace", "Save[Not Available]", "Player two! What do you wish to do?");
+                GetInput(out input, "Attack", "Peace", "Save", "Player two! What do you wish to do?");
 
                 if (input == '1')
                 {
@@ -312,7 +312,7 @@ namespace HelloWorld
         public void OpenMenu()
         {
             char input;
-            GetInput(out input, "Create new character", "Load Character[Not Available]", "What do you wish to do?");
+            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
             if (input == '2')
             {
                 Loading();

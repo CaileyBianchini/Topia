@@ -192,7 +192,7 @@ namespace HelloWorld
         public void OpenMenu()
         {
             char input;
-            GetInput(out input, "Create new character", "Load Character[Not Available]", "What do you wish to do?");
+            GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
             if (input == '2')
             {
                 Loading1();
