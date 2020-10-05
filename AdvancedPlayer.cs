@@ -18,7 +18,10 @@ namespace HelloWorld
 
         private Items _currentWeapon;
         private Items _hands;
-        private Items[] _inventory;
+        protected Items[] _inventory;
+
+        //currency
+        private int _gold;
 
         //Calls the default constructor for the Advanced Player, and then calls the base classes constructor.
         public AdvancedPlayer() : base()
@@ -33,9 +36,11 @@ namespace HelloWorld
 
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
+
+            _gold = 10;
         }
 
-        public AdvancedPlayer(float healthVal, float damageVal, string nameVal, int levelVal, int manaVal, int charismaVal, int karmaVal, int luckVal, int stealthVal, string roleVal, int inventorySize)
+        public AdvancedPlayer(float healthVal, float damageVal, string nameVal, int levelVal, int manaVal, int charismaVal, int karmaVal, int luckVal, int stealthVal, string roleVal, int inventorySize, int goldVal)
             : base(healthVal, damageVal, nameVal)
         {
             _level = levelVal;
@@ -48,6 +53,8 @@ namespace HelloWorld
 
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
+
+            _gold = goldVal;
         }
 
         public override void Save(StreamWriter writer)
@@ -200,6 +207,17 @@ namespace HelloWorld
             return _inventory;
         }
 
+        public bool BuyWithGold(Items item, int Item)
+        {
+            if (_gold >= item.itemPrice)
+            {
+                //Pay for item.
+                _gold -= item.itemPrice;
+                //Place item in inventory array.
+                _inventory[Item] = item;
+                return true;
+            }
+        }
 
         //everything below will +1 the stats
         public int LevelUp()

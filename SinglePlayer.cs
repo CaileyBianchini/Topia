@@ -231,7 +231,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 100, 2, 0, 1, 0, "Wizard", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -240,7 +240,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 50, 3, 0, 2, 0, "Knight", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 50, 3, 0, 2, 0, "Knight", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -249,7 +249,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -258,7 +258,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(200.0f, 40.0f, name, 0, 0, 3, 0, 3, 0, "Monk", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(200.0f, 40.0f, name, 0, 0, 3, 0, 3, 0, "Monk", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -267,7 +267,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 50, 1, 0, 2, 5, "Ranger", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(80.0f, 25.0f, name, 0, 50, 1, 0, 2, 5, "Ranger", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -276,7 +276,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 120, 8, 0, 4, 2, "Bard", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 120, 8, 0, 4, 2, "Bard", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -286,7 +286,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3, 10);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
