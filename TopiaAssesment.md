@@ -13,6 +13,7 @@
 	- **Name**: Topia
 
 	- **Problem Statement**: Check all the requirments for Assessment
+    - ![image](pictures/Asssignment.PNG)
 	
 	- **Problem Specifications**:  must be based on either Shop, PvP or text RPG
     
@@ -27,7 +28,7 @@
  
 ## II. Errors
 
-    1. None
+    1. Load not loading properly
 
 ## III. Future Ideas
     1. Money 
