@@ -43,10 +43,10 @@
 
 ## 1. Menu
 
-![image](DocumentPicture/TopiaMenu.png)
+![image](pictures/menu.png)
 
 ## 2. Introduction In SinglePlayer Format
-![image](DocumentPicture/IntroductionTopia.png)
+![image](pictures/intro.png)
 
 ### Object Information
 
