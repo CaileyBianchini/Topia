@@ -217,6 +217,7 @@ namespace HelloWorld
                 _inventory[Item] = item;
                 return true;
             }
+            return false;
         }
 
         //everything below will +1 the stats
