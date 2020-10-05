@@ -43,10 +43,10 @@
 
 ## 1. Menu
 
-![image](pictures/menu.png)
+![image](pictures/menu.PNG)
 
 ## 2. Introduction In SinglePlayer Format
-![image](pictures/intro.png)
+![image](pictures/intro.PNG)
 
 ### Object Information
 
