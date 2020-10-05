@@ -379,7 +379,7 @@ namespace HelloWorld
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("You awoke in a bright marble room, standing in front of you a tall and goddess like dark elf and her eyes had galxies in them. There was a halo behing her making her even more goddess like, she gives you small smile and open her arms.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("'Welcome Hero " + _player.GetName() + "! You were summouned from your world to help the world of Topia that is raveged by demons. There is only one way to return home. That is to defeat the Demon King! Please understand that this is for the greater good! But no worries I will help aid you in this Advanture!'");
+                Console.WriteLine("'Welcome Hero " + _player.GetName() + "! You were summouned from your world to help the world of Topia that is raveged by demons. There is only one way to return home. That is to defeat the Demon King! Please understand that this is for the greater good! But no worries I will help aid you in this Adventure!'");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("The room became brighter.");
                 Console.ForegroundColor = ConsoleColor.Cyan;

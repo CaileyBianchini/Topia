@@ -63,7 +63,7 @@ namespace HelloWorld
             writer.WriteLine(_karma);
             writer.WriteLine(_luck);
             writer.WriteLine(_stealth);
-            writer.Close();
+            
         }
 
         public override bool Load(StreamReader reader)

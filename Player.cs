@@ -30,11 +30,10 @@ namespace HelloWorld
         {
             //save the characters stats
             writer.WriteLine(_name);
-            writer.WriteLine(_currentWeapon.statName);
+            writer.WriteLine(_pocket[0].statName);
             writer.WriteLine(_damage);
-            writer.WriteLine(_currentWeapon.statBoost);
+            writer.WriteLine(_pocket[0].statBoost);
             writer.WriteLine(_health);
-            writer.Close();
         }
 
         public override bool Load(StreamReader reader)

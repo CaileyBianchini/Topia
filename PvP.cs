@@ -352,7 +352,6 @@ namespace HelloWorld
         public void Update()
         {
             OpenMenu();
-            
             StartBattle();
         }
 
