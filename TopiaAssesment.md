@@ -1,9 +1,10 @@
 | Cailey Marie Bianchini|
 | :---          	|
 | s208042    	|
-| Computer Graphics |
 | Topia Documentation |
 | https://github.com/CaileyBianchini/Topia |
+| Proggramming Class 2022 |
+|October 5, 2020|
 
 ## I. Requirements
 
@@ -13,7 +14,7 @@
 
 	- **Problem Statement**: Check all the requirments for Assessment
 	
-	- **Problem Specifications**:  
+	- **Problem Specifications**:  must be based on either Shop, PvP or text RPG
     
 
 2. Input Information

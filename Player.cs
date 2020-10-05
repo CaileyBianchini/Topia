@@ -26,7 +26,7 @@ namespace HelloWorld
             _hands.statBoost = 0;
         }
 
-        public virtual void Saving(StreamWriter writer)
+        public override void Save(StreamWriter writer)
         {
             //save the characters stats
             writer.WriteLine(_name);
@@ -34,10 +34,16 @@ namespace HelloWorld
             writer.WriteLine(_damage);
             writer.WriteLine(_currentWeapon.statBoost);
             writer.WriteLine(_health);
+            writer.Close();
         }
 
-        public virtual bool Loading(StreamReader reader)
+        public override bool Load(StreamReader reader)
         {
+            if(File.Exists("SaveData.txt") == false)
+            {
+                return false;
+            }
+
             //creates variable to the store loaded data.
             string name = reader.ReadLine();
             string weaponname = reader.ReadLine();

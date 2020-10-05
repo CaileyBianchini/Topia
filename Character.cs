@@ -59,12 +59,15 @@ namespace HelloWorld
             return _health < 1;
         }
 
+        
+
         public virtual void Save(StreamWriter writer)
         {
             //save the characters stats
             writer.WriteLine(_name);
             writer.WriteLine(_damage);
             writer.WriteLine(_health);
+            writer.Close();
         }
 
         public virtual bool Load(StreamReader reader)
@@ -90,7 +93,7 @@ namespace HelloWorld
             return true;
         }
 
-        public void PrintStats()
+        public virtual void PrintStats()
         {
             Console.WriteLine("\nName: " + _name);
             Console.WriteLine("Health: " + _health);

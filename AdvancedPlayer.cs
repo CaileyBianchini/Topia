@@ -50,7 +50,7 @@ namespace HelloWorld
             _hands.statBoost = 0;
         }
 
-        public virtual void Save1(StreamWriter writer)
+        public override void Save(StreamWriter writer)
         {
             //save the characters stats
             writer.WriteLine(_name);
@@ -63,10 +63,16 @@ namespace HelloWorld
             writer.WriteLine(_karma);
             writer.WriteLine(_luck);
             writer.WriteLine(_stealth);
+            writer.Close();
         }
 
-        public virtual bool Load1(StreamReader reader)
+        public override bool Load(StreamReader reader)
         {
+            if(File.Exists("SaveAdventure.txt") == false)
+            {
+                return false;
+            }
+
             //creates variable to the store loaded data.
             string name = reader.ReadLine();
             float damage = 0;
@@ -126,7 +132,23 @@ namespace HelloWorld
             return true;
         }
 
-        public void PrintAdvancedStats()
+
+        //this will use TakeDamage against the enemy using players damage
+        public override float Attack(Character enemy)
+        {
+            float totalDamage = 0.0f;
+            if (_mana >= 5)
+            {
+                float damageTaken = _damage + _mana * .25f;
+                _mana -= 5;
+                damageTaken = enemy.TakeDamage(totalDamage);
+                return damageTaken;
+            }
+            totalDamage = base.Attack(enemy);
+            return totalDamage;
+        }
+
+        public override void PrintStats()
         {
             Console.WriteLine("\nName: " + _name);
             Console.WriteLine("Health: " + _health);

@@ -172,20 +172,24 @@ namespace HelloWorld
         }
 
         //this saves the functions value
-        public virtual void Saving1()
+        public void Save()
         {
-            StreamWriter writer = new StreamWriter("Save.txt");
+            //creates a new stream writer
+            StreamWriter writer = new StreamWriter("SaveAdventure.txt");
+            //this will save the players stats
             _player.Save(writer);
+            //this will close the saving
             writer.Close();
         }
 
         //this loads the functions value
-        public virtual void Loading1()
+        public void Load()
         {
-            StreamReader reader = new StreamReader("Save.txt");
-            string word = reader.ReadLine();
+            StreamReader reader = new StreamReader("SaveAdventure.txt");
             //save the characters stats
             _player.Load(reader);
+            //closes reader
+            reader.Close();
         }
 
         //this allows you to either create a new character or load one
@@ -195,12 +199,13 @@ namespace HelloWorld
             GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
             if (input == '2')
             {
-                Loading1();
+                _player = new AdvancedPlayer();
+                Load();
                 return;
             }
 
             _player = CreateCharacter();
-            Saving1();
+            Save();
         }
 
         //this creates a new player
@@ -281,7 +286,7 @@ namespace HelloWorld
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nWhat is your name?");
                         string name = Console.ReadLine();
-                        AdvancedPlayer _player = new AdvancedPlayer(100.0f, 30.0f, name, 0, 100, 2, 0, 2, 0, "Hero", 3);
+                        AdvancedPlayer _player = new AdvancedPlayer(150.0f, 40.0f, name, 0, 80, 2, 0, 2, 1, "Hero", 3);
                         Console.ForegroundColor = ConsoleColor.White;
                         return _player;
                     }
@@ -347,7 +352,7 @@ namespace HelloWorld
                 {
                     Console.WriteLine("Saving . . .");
                     Console.ReadKey();
-                    Saving1();
+                    Save();
                     Console.WriteLine("Have a great day!");
                 }
                 else
@@ -389,8 +394,9 @@ namespace HelloWorld
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("- D A Y  O N E -");
                 Console.WriteLine("");
+                _player.PrintStats();
                 Console.WriteLine("");
-                Console.WriteLine("");
+                Continue();
                 Console.ForegroundColor = ConsoleColor.White;
 
                 Console.WriteLine("A bright light blinded you after you were given the quest by the woman. When the light finally cleared you realized you were in the center of a crowd.");

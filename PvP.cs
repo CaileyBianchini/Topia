@@ -166,7 +166,7 @@ namespace HelloWorld
 
 
 
-        public virtual void Saving()
+        public virtual void Save()
         {
             StreamWriter writer = new StreamWriter("SaveData.txt");
             //saves both players stuff
@@ -176,10 +176,9 @@ namespace HelloWorld
             writer.Close();
         }
 
-        public virtual void Loading()
+        public virtual void Load()
         {
             StreamReader reader = new StreamReader("SaveData.txt");
-            string word = reader.ReadLine();
             //save the characters stats
             //calls saves of both players
             _player1.Load(reader);
@@ -282,7 +281,7 @@ namespace HelloWorld
                 }
                 if (input == '3')
                 {
-                    Saving();
+                    Save();
                 }
                 Continue();
 
@@ -302,7 +301,7 @@ namespace HelloWorld
                 }
                 if (input == '3')
                 {
-                    Saving();
+                    Save();
                 }
 
                 Continue();
@@ -315,18 +314,13 @@ namespace HelloWorld
             GetInput(out input, "Create new character", "Load Character", "What do you wish to do?");
             if (input == '2')
             {
-                Loading();
-                Saving();
+                _player1 = new Player();
+                _player2 = new Player();
+                Load();
                 return;
             }
-            else
-            {
-                _player1 = CreateCharacter();
-                _player2 = CreateCharacter();
-                Saving();
-                return;
-            }
-            
+            _player1 = CreateCharacter();
+            _player2 = CreateCharacter();
         }
 
         public Player CreateCharacter()

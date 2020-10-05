@@ -2,7 +2,11 @@
 | Cailey Marie Bianchini|
 | :---          	|
 | s208042    	|
-| Computer Graphics |
+| Programing class 2020 |
+|October 5, 2020 |
+
+
+Requires Key Board
 
 ## I. Two Types of Game Play
 	-	1. You can choose Single Player or Player versus Player
