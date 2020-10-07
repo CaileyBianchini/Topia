@@ -128,6 +128,7 @@ namespace HelloWorld
         private Player _DemonKing;
 
         //weapons
+        private Items _rustedSword;
         private Items _longSword;
         private Items _dagger;
         private Items _ax;
@@ -136,15 +137,20 @@ namespace HelloWorld
         private Items _hammer;
 
 
+
         //shop
         private Shop shop;
-        private Items shopInventory;
+        private Items[] _shopInventory;
         private Items _money;
         //really need to figure out how to implement the money system uuuuuugh
 
 
         public void InitializeItems()
         {
+            _rustedSword.statBoost = 5;
+            _rustedSword.statName = "Rusted Sword";
+            _rustedSword.itemPrice = 0;
+
             _longSword.statBoost = 15;
             _longSword.statName = "Long Sword";
             _longSword.itemPrice = 4;
@@ -201,11 +207,122 @@ namespace HelloWorld
             {
                 _player = new AdvancedPlayer();
                 Load();
+            }
+            else
+            {
+                _player = CreateCharacter();
+                Save();
+            }
+        }
+
+        private void OpenShopMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            //instruction
+            Console.WriteLine("Please selct an item.");
+            Console.WriteLine("1. " + _rustedSword.statName + ":" + _rustedSword.itemPrice);
+            Console.WriteLine("2. " + _longSword.statName + ":" + _longSword.itemPrice);
+            Console.WriteLine("3. " + _dagger.statName + ":" + _dagger.itemPrice);
+            Console.WriteLine("4. " + _ax.statName + ":" + _ax.itemPrice);
+            Console.WriteLine("5. " + _staff.statName + ":" + _staff.itemPrice);
+            Console.WriteLine("6. " + _mace.statName + ":" + _mace.itemPrice);
+            Console.WriteLine("7. " + _hammer.statName + ":" + _hammer.itemPrice);
+
+            //Get player input
+            char input = Console.ReadKey().KeyChar;
+
+            //Set itemIndex to be the index the player selected
+            int itemIndex = -1;
+            switch (input)
+            {
+                case '1':
+                    {
+                        itemIndex = 0;
+                        break;
+                    }
+                case '2':
+                    {
+                        itemIndex = 1;
+                        break;
+                    }
+                case '3':
+                    {
+                        itemIndex = 2;
+                        break;
+                    }
+                case '4':
+                    {
+                        itemIndex = 3;
+                        return;
+                    }
+                case '5':
+                    {
+                        itemIndex = 4;
+                        return;
+                    }
+                case '6':
+                    {
+                        itemIndex = 5;
+                        return;
+                    }
+                case '7':
+                    {
+                        itemIndex = 6;
+                        return;
+                    }
+                default:
+                    {
+                        return;
+                    }
+            }
+
+            //this will stop the player from buying an item they cannot afford
+            if (_player.GetGold() < _shopInventory[itemIndex].itemPrice)
+            {
+                Console.WriteLine("You cant afford this.");
                 return;
             }
 
-            _player = CreateCharacter();
-            Save();
+            //this will let the player slot their item
+            Console.WriteLine("Choose a slot to replace.");
+            PrintInventory(_player.GetInventory());
+            input = Console.ReadKey().KeyChar;
+
+            int playerIndex = -1;
+            switch (input)
+            {
+                case '1':
+                    {
+                        playerIndex = 0;
+                        break;
+                    }
+                case '2':
+                    {
+                        playerIndex = 1;
+                        break;
+                    }
+                case '3':
+                    {
+                        playerIndex = 2;
+                        break;
+                    }
+                default:
+                    {
+                        return;
+                    }
+            }
+
+            shop.SellWithGold(_player, itemIndex, playerIndex);
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void PrintInventory(Items[] inventory)
+        {
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + inventory[i].statName + inventory[i].itemPrice);
+            }
         }
 
         //this creates a new player
@@ -319,6 +436,8 @@ namespace HelloWorld
         public void Start()
         {
             InitializeItems();
+            _shopInventory = new Items[] { _rustedSword, _longSword, _dagger, _ax, _staff, _mace, _hammer};
+            shop = new Shop(_shopInventory);
         }
 
         public void Update()
@@ -344,7 +463,7 @@ namespace HelloWorld
             }
             else
             {
-                Console.WriteLine("Version 0.0.2");
+                Console.WriteLine("Version 0.0.3");
                 Console.WriteLine("You reached the end of what we have. This is an early version of the game.");
                 char input;
                 GetInput(out input, "Yes", "No", "Do you wish to save?");
@@ -407,6 +526,7 @@ namespace HelloWorld
                 Console.ForegroundColor = ConsoleColor.White;
 
                 char input;
+                //first choice
                 GetInput(out input,"Answer him honestly about what you saw and what she said.", "A Goddess? Sorry I don't know who you are talking about.", "Your response:");
 
                 if (input == '1')
@@ -451,10 +571,63 @@ namespace HelloWorld
 
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
 
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("- E N D  O F  D A Y  O N E -");
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("");
+
+                Continue();
+
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("- D A Y  T W O -");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Stats");
+                _player.PrintStats();
+                Continue();
+
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.WriteLine("You awoke in an unfamiliar room, then you remembered what happened yesterday.");
+                Console.WriteLine("You stand up and walk out of your room and head out of the tavern.");
+                Console.WriteLine("Your objective for today is to learn how to attack! Across the street from you, you spot a soldier."); //I swear to god thats how you spell soldier, i am too angrey at my loss of my programing to worry about spelling >:(
+
+                //depends on choice 1
+                if (input == '1')
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("The soldier gives you a bright smile ' Hero " + _player.GetName() + "! Ya came ta ask me! I'm blessed! It's down da road with da grey brick fencing!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("You thank the soldier and follow his instructions.");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("The soldier grumbles at you and points down the street, 'It's da grey bik fenced area.'");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("You wonder down the street that he pointed to looking out for an obvious training ground with the grey brick fencing around it.");
+                }
+
+                Continue();
+
+                Console.WriteLine("You found the traing area and enter inside. You see a few dummies around, obvious for practice. You go up the the dummy on the feild and realize that in order for you to practice you need a weapon!");
+                Console.WriteLine("You look around and spot a small vendor. You walk up to him and he smiles at you.");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+                Console.WriteLine("Welcome newcommer! We have many items however since you are new I'm willing to let you buy the first item for free! Well its always free. It will be great for you to preactice with!");
+
+                OpenShopMenu();
+
+                Console.ForegroundColor = ConsoleColor.White;
+
 
                 //TEMPERARY!!!
                 //ERASE SOON \/\/\/

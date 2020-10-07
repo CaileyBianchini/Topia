@@ -317,10 +317,12 @@ namespace HelloWorld
                 _player1 = new Player();
                 _player2 = new Player();
                 Load();
-                return;
             }
-            _player1 = CreateCharacter();
-            _player2 = CreateCharacter();
+            else
+            {
+                _player1 = CreateCharacter();
+                _player2 = CreateCharacter();
+            }
         }
 
         public Player CreateCharacter()

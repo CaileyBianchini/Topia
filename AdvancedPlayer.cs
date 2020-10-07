@@ -14,7 +14,6 @@ namespace HelloWorld
         private int _karma;
         private int _luck;
         private int _stealth;
-        private float _specialdamage;
 
         private Items _currentWeapon;
         private Items _hands;
@@ -22,6 +21,7 @@ namespace HelloWorld
 
         //currency
         private int _gold;
+        private int _silver;
 
         //Calls the default constructor for the Advanced Player, and then calls the base classes constructor.
         public AdvancedPlayer() : base()
@@ -34,6 +34,7 @@ namespace HelloWorld
             _luck = 0;
             _stealth = 0;
 
+            _inventory = new Items[3];
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
 
@@ -50,6 +51,7 @@ namespace HelloWorld
             _luck = luckVal;
             _stealth = stealthVal;
             _role = roleVal;
+            _inventory = new Items[inventorySize];
 
             _hands.statName = "Your fugly hands";
             _hands.statBoost = 0;
@@ -207,25 +209,52 @@ namespace HelloWorld
             return _inventory;
         }
 
-        public bool BuyWithGold(Items item, int Item)
+        //this will subtract the items price from players gold
+        public bool BuyWithGold(Items item, int inventoryIndex)
         {
             if (_gold >= item.itemPrice)
             {
-                //Pay for item.
+                //this will subtract the price of item from players money
                 _gold -= item.itemPrice;
-                //Place item in inventory array.
+                //this will place item in inventory array.
+                _inventory[inventoryIndex] = item;
+                return true;
+            }
+            return false;
+        }
+
+        //this will get the number for the gold
+        public int GetGold()
+        {
+            return _gold;
+        }
+
+        //same as BuyWithGold() but it if for the players silver
+        public bool BuyWithSilver(Items item, int Item)
+        {
+            if (_silver >= item.itemPrice)
+            {
+                //this will subtract the price of item from players money
+                _silver -= item.itemPrice;
+                //this will place item in inventory array.
                 _inventory[Item] = item;
                 return true;
             }
             return false;
         }
 
+        //this will get the number for silver
+        public int GetSilver()
+        {
+            return _silver;
+        }
+
         //everything below will +1 the stats
+
         public int LevelUp()
         {
             return _level + 1;
         }
-
         
         public int CharismaUp()
         {

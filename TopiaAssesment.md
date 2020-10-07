@@ -135,6 +135,19 @@
          Name: Load(StreamReader reader)
              Description: this is the basic load, it will only load the name, health and damage
              Type: public virtual bool
+         Name: BuyWithGold()
+             Description: This will subtract the items price from users gold
+             Type: public bool
+         Name: GetGold()
+             Description: this will get the value
+             Type: public int
+         Name: BuyWithSilver()
+             Description: This will subtract the items price from users silver
+             Type: public bool
+         Name: GetSilver()
+             Description: this will get the value
+             Type: public int
+            
 
 **File**: Character.cs
 
@@ -225,3 +238,15 @@
          Name: Adventure()
              Description: this will
              Type: public void
+
+**File**: Shop.cs
+
+**Attributes**
+
+         Name:SellWithGold()
+             Description: this will tak ethe item from the shop that the player selected then apply AdvancedPlayer.BuyWithGold
+             Type: public bool
+         Name:SellWithSilver()
+             Description: this will tak ethe item from the shop that the player selected then apply AdvancedPlayer.BuyWithSilver
+             Type: public bool
+         

@@ -20,9 +20,8 @@ Requires Key Board
 ## II. Soon to Come
 	-	Race choices
 	-	more to the story
-	-	currency
-	-	a shop
-	-	an easier load off pont
+	-	an easier load off point
+	-	will be adding silver and copper currency
 
 ## III. Controls
 	-	The controls are simple, you will be given choices (the amount of choices vary) and will select the choice you want.
