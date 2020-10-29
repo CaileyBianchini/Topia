@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using Raylib_cs;
+using MathLibrary;
+
 
 namespace HelloWorld
 {
@@ -10,7 +13,6 @@ namespace HelloWorld
         private Items[] _pocket;
         private Items _currentWeapon;
         private Items _hands;
-
 
         public Player() : base()
         {

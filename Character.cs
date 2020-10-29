@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using Raylib_cs;
+using MathLibrary;
 
 namespace HelloWorld
 {
@@ -11,18 +13,65 @@ namespace HelloWorld
         protected float _damage;
         protected string _name;
 
+        protected char _icon = ' ';
+        protected Vector2 _velocity;
+        protected Matrix3 _transform;
+        protected ConsoleColor _color;
+        protected Color _rayColor;
+        public bool Started { get; private set; }
 
-        public Character()
+        public Vector2 Forward
+        {
+            get
+            {
+                return new Vector2(_transform.m11, _transform.m12);
+            }
+            set
+            {
+                _transform.m11 = value.X;
+                _transform.m12 = value.Y;
+            }
+        }
+
+
+        public Vector2 Position
+        {
+            get { return new Vector2(_transform.m13, _transform.m23); }
+            set
+            {
+                _transform.m13 = value.X;
+                _transform.m23 = value.Y;
+            }
+        }
+
+        public Vector2 Velocity
+        {
+            get { return _velocity; }
+            set{_velocity = value;}
+        }
+
+        public Character(float y, float x, char icon = ' ', ConsoleColor color = ConsoleColor.White)
         {
             _health = 100;
             _name = "Player";
             _damage = 10;
+
+            _rayColor = Color.WHITE;
+            _icon = icon;
+            _transform = new Matrix3();
+            Position = new Vector2(x, y);
+            _velocity = new Vector2();
+            _color = color;
+            Forward = new Vector2(1, 0);
         }
-        public Character(float healthVal, float damageVal, string nameVal)
+        public Character(float healthVal, float damageVal, string nameVal, float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
         {
             _health = healthVal;
             _name = nameVal;
             _damage = damageVal;
+
+            _transform = new Matrix3();
+            _rayColor = rayColor;
         }
 
         //this will use TakeDamage against the enemy using players damage
